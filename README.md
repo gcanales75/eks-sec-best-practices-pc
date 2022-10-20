@@ -61,7 +61,7 @@ https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driv
   aws --region "$REGION" secretsmanager  create-secret --name MySecret --secret-string '{"username":"gilberto", "password":"canales"}'
   ```
 
-1. 
+1. Create policy
 
   ```
   POLICY_ARN=$(aws --region "$REGION" --query Policy.Arn --output text iam create-policy --policy-name secrets-manager-access-policy --policy-document '{
@@ -168,7 +168,7 @@ https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driv
     --username dev-user
   ```
 
-1. Go to a local console to add `k8s-dev-user` profile
+1. Go to a local console to add `k8s-dev-user` profile (Edit: ~/.aws/credentials)
 
   ```
   aws configure
