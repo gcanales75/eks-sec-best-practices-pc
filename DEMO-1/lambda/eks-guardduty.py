@@ -8,7 +8,7 @@ import os
 
 http = urllib3.PoolManager()
 # Slack channel: pso-security
-url = 'https://hooks.slack.com/services/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'
+url = $SLACK_WEBHOOK
 
 
 def lambda_handler(event, context):
