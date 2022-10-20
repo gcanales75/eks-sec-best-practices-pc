@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: accesshostpod-debian
+spec:
+  containers:
+  - image: public.ecr.aws/debian/debian:unstable-20221004-slim
+    name: debian
+    command:
+    - sleep
+    - "3600"
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - mountPath: /host
+      name: host-volume
+  volumes:
+  - name: host-volume
+    hostPath:
+      # directory location on host
+      path: /
