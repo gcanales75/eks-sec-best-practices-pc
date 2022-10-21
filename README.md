@@ -76,9 +76,9 @@ https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driv
 
 1. Create an IAM OIDC provider
 
-  ´´´
-  eksctl utils associate-iam-oidc-provider --region="$REGION" --cluster="$CLUSTERNAME" --approve # Only run this once
-  ´´´
+  ```
+  eksctl utils associate-iam-oidc-provider --region="$REGION" --cluster="$CLUSTERNAME" --approve
+  ``` 
 
 1. Create the service account the pod uses and associate the resource policy you created before
 
@@ -155,7 +155,7 @@ https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driv
 
 1. Create K8s `Role` and `RoleBinding`
 
-1. Update the `aws-auth` ConfigMap to allow our IAM roles, first take a look athe the ConfifMap `kubectl get cm -n kube-system aws-auth -o yaml`
+1. Update the `aws-auth` ConfigMap to allow our IAM roles, first take a look at the the ConfigMap `kubectl get cm -n kube-system aws-auth -o yaml`
 
   ```
   export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
